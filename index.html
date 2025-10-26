@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSIS Exam — BPM Deep Understanding (Automation, RPA, AI)</title>
+<style>
+  body{font-family:Arial,sans-serif;margin:0;padding:0;background:#f6f8fb;color:#0f172a;user-select:none;}
+  header{background:#fff;padding:16px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 6px rgba(0,0,0,.1);}
+  header h1{margin:0;font-size:1.15rem;} 
+  header .timer{margin-left:auto;padding:8px 12px;background:#ffe5e5;color:#b00020;font-weight:700;border-radius:50px;}
+  main{max-width:980px;margin:20px auto;padding:12px;}
+  .card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05);margin-bottom:12px;}
+  label{display:block;margin:8px 0 4px;font-weight:600;}
+  select,input[type=text]{width:100%;padding:8px;border-radius:6px;border:1px solid #ccc;}
+  button{background:#1f6feb;color:#fff;border:none;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer;}
+  button.secondary{background:#eef2ff;color:#1f6feb;}
+  .hidden{display:none!important;}
+  .muted{color:#6b7280;font-size:.9rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>BSIS Exam — Business Process Management (Process Automation, RPA, AI)</h1>
+  <div class="timer" id="timer">35:00</div>
+</header>
+
+<main>
+  <section class="card" id="accessCodeSection">
+    <label>Enter Exam Access Code:</label>
+    <input type="text" id="examCodeInput" placeholder="Enter code here">
+    <button type="button" id="examCodeBtn">Start Exam</button>
+    <p id="codeError" class="muted" style="color:red; display:none;">Incorrect code. Please try again.</p>
+    <p class="muted" style="margin-top:8px;">Use access code provided by your instructor.</p>
+  </section>
+
+  <form id="examForm" class="card hidden" autocomplete="off">
+    <label>Student Name</label>
+    <input type="text" id="studentName" name="studentName" placeholder="Last name, First name">
+    <hr>
+
+    <!-- === 40 Multiple Choice Questions === -->
+    <!-- Each question: label then select. Correct option marked with selected attribute. -->
+    <!-- Questions are case-based and analytical (Process Automation, RPA, AI in BPM). -->
+
+    <label>1. A bank deploys an RPA bot to copy invoices from email attachments into ERP. During peak, duplicates occur because of re-delivered emails. Which durable design change best prevents duplicates?</label>
+    <!-- Correct: C -->
+    <select name="q1"><option value="">Select answer</option>
+      <option>A. Increase bot concurrency</option>
+      <option>B. Move processing to a later batch window</option>
+      <option>C. Introduce idempotency checks using file hash & transaction log before insert</option>
+      <option>D. Disable email retries</option>
+    </select>
+
+    <label>2. An organization wants to automate a process that requires judgment (identify suspicious transactions). Which approach balances automation and risk?</label>
+    <!-- Correct: A -->
+    <select name="q2"><option value="">Select answer</option>
+      <option>A. Use ML model for triage and human review for high-risk cases (human-in-the-loop)</option>
+      <option>B. Fully automate and remove human checks</option>
+      <option>C. Only log suspicious items for later manual review review for high-risk cases (human-in-the-loop)</option>
+      <option>D. Use hard-coded rules only review for high-risk cases (human-in-the-loop)</option>
+    </select>
+
+    <label>3. A legacy system provides no API. Your RPA solution directly manipulates the UI. What is the most sustainable medium-term strategy?</label>
+    <!-- Correct: D -->
+    <select name="q3"><option value="">Select answer</option>
+      <option>A. Continue adding more UI bots</option>
+      <option>B. Replace legacy immediately</option>
+      <option>C. Let end-users keep copying data manually</option>
+      <option>D. Build an adapter layer or microservice facade and migrate automations to call it</option>
+    </select>
+
+    <label>4. A deployed automation occasionally times out due to slow downstream service. Which pattern makes the automation robust?</label>
+    <!-- Correct: A -->
+    <select name="q4"><option value="">Select answer</option>
+      <option>A. Implement retries with exponential backoff, idempotency, and queueing between steps</option>
+      <option>B. Kill the bot job on first timeout with exponential backoff, idempotency, and queueing between steps</option>
+      <option>C. Increase bot CPU with exponential backoff, idempotency, and queueing between steps</option>
+      <option>D. Ignore timeouts and mark as success with exponential backoff, idempotency, and queueing between steps</option>
+    </select>
+
+    <label>5. You must measure automation ROI. Which KPI set is most meaningful to business stakeholders?</label>
+    <!-- Correct: B -->
+    <select name="q5"><option value="">Select answer</option>
+      <option>A. Bot memory usage and CPU</option>
+      <option>B. Process cycle time reduction, error rate decrease, and cost per transaction</option>
+      <option>C. Number of scripts authored</option>
+      <option>D. Lines of code in automation</option>
+    </select>
+
+    <label>6. A process has variable inputs and exceptions. Which automation architecture reduces human interruption while preserving safety?</label>
+    <!-- Correct: C -->
+    <select name="q6"><option value="">Select answer</option>
+      <option>A. Push everything to fully automated unattended bots</option>
+      <option>B. Only manual processing</option>
+      <option>C. Hybrid attended-unattended design with escalation for exceptions</option>
+      <option>D. Scheduled nightly manual work</option>
+    </select>
+
+    <label>7. During pilot, an ML classifier drifted after 3 months due to data changes. Best operational control?</label>
+    <!-- Correct: A -->
+    <select name="q7"><option value="">Select answer</option>
+      <option>A. Implement model monitoring with drift detection and retraining pipeline</option>
+      <option>B. Disable model updates forever</option>
+      <option>C. Use static thresholds only</option>
+      <option>D. Increase model complexity without monitoring</option>
+    </select>
+
+    <label>8. An RPA bot stores credentials in a database accessible by developers. What is the secure remedy?</label>
+    <!-- Correct: D -->
+    <select name="q8"><option value="">Select answer</option>
+      <option>A. Encrypt credentials using a static key stored in repo</option>
+      <option>B. Store credentials in plain text but with limited DB access</option>
+      <option>C. Hard-code credentials per bot</option>
+      <option>D. Use a secrets manager / vault with role-based access and rotation</option>
+    </select>
+
+    <label>9. A company wants to scale automation across departments. What governance element is essential to ensure consistent results?</label>
+    <!-- Correct: B -->
+    <select name="q9"><option value="">Select answer</option>
+      <option>A. Centralized coding only</option>
+      <option>B. Standardized process models, naming conventions, and a reusable component library</option>
+      <option>C. No documentation</option>
+      <option>D. Each team invents its own standards</option>
+    </select>
+
+    <label>10. You observe bots interfering with each other on shared UI screens. Best architectural fix?</label>
+    <!-- Correct: C -->
+    <select name="q10"><option value="">Select answer</option>
+      <option>A. Run bots faster</option>
+      <option>B. Increase bot count on same screen</option>
+      <option >C. Introduce service-layer APIs or a queue-based dispatcher to serialize interactions</option>
+      <option>D. Use screenshots to coordinate</option>
+    </select>
+
+    <label>11. A process requires sensitive personal data. To reduce exposure when automating, you should:</label>
+    <!-- Correct: A -->
+    <select name="q11"><option value="">Select answer</option>
+      <option>A. Tokenize or anonymize PII in-transit and mask in logs; minimize data footprint</option>
+      <option>B. Store all PII in plain logs for debugging,  minimize data footprint</option>
+      <option>C. Send PII to developers for processing  minimize data footprint</option>
+      <option>D. Disable security for speed  minimize data footprint</option>
+    </select>
+
+    <label>12. A business owner wants full transparency on every automated decision. Best supporting capability?</label>
+    <!-- Correct: D -->
+    <select name="q12"><option value="">Select answer</option>
+      <option>A. Only console logs</option>
+      <option>B. Email summaries once a month</option>
+      <option>C. No logging</option>
+      <option>D. Audit trail with correlation IDs, explainable model outputs, and UI for review</option>
+    </select>
+
+    <label>13. An automation must be maintainable long-term. Choose the key developer discipline to achieve this:</label>
+    <!-- Correct: B -->
+    <select name="q13"><option value="">Select answer</option>
+      <option>A. Obscure inline scripts</option>
+      <option>B. Modular components, version control, and automated tests for bots</option>
+      <option>C. One-off scripts per case</option>
+      <option>D. Manual change logs only</option>
+    </select>
+
+    <label>14. You must prioritize candidate processes for automation. Which scoring criteria are most predictive of success?</label>
+    <!-- Correct: C -->
+    <select name="q14"><option value="">Select answer</option>
+      <option>A. Length of process name</option>
+      <option>B. Owner seniority</option>
+      <option>C. Volume, rule-based logic, stability, and ROI potential</option>
+      <option>D. Number of colors in forms</option>
+    </select>
+
+    <label>15. Bots sometimes fail due to UI changes after vendor upgrade. What is the best preventive deal to reduce fragility?</label>
+    <!-- Correct: D -->
+    <select name="q15"><option value="">Select answer</option>
+      <option>A. Increase retry counts</option>
+      <option>B. Monitor less frequently</option>
+      <option>C. Hard-code new locators when broken</option>
+      <option>D. Prefer API integrations or stable selectors and implement UI-change detection tests</option>
+    </select>
+
+    <label>16. During scale, licensing cost of RPA platform spikes. For long-term cost control, you should:</label>
+    <!-- Correct: B -->
+    <select name="q16"><option value="">Select answer</option>
+      <option>A. Buy unlimited licenses immediately</option>
+      <option>B. Implement centralized orchestration, capacity planning, and evaluate cloud or open-source alternatives</option>
+      <option>C. Keep adding attended bots per user</option>
+      <option>D. Cancel monitoring</option>
+    </select>
+
+    <label>17. You need to measure model performance post-deployment. Which metric suite is appropriate for a classification model used in BPM?</label>
+    <!-- Correct: A -->
+    <select name="q17"><option value="">Select answer</option>
+      <option>A. Precision, recall, ROC-AUC, and confusion matrix slices by segment</option>
+      <option>B. Lines of code and model size</option>
+      <option>C. Disk usage only</option>
+      <option>D. Uptime only</option>
+    </select>
+
+    <label>18. A robotic process touches multiple systems and is slow because of network latency. Which refactor most improves throughput?</label>
+    <!-- Correct: C -->
+    <select name="q18"><option value="">Select answer</option>
+      <option>A. Increase UI polling</option>
+      <option>B. Add more bots doing the same steps</option>
+      <option>C. Move logic server-side and use APIs/ETL to reduce UI hops</option>
+      <option>D. Reduce logging</option>
+    </select>
+
+    <label>19. A bot acts on customer data and produces decisions; a customer disputes a decision. What capability supports dispute resolution?</label>
+    <!-- Correct: D -->
+    <select name="q19"><option value="">Select answer</option>
+      <option>A. Delete logs regularly</option>
+      <option>B. Only retain aggregated KPIs</option>
+      <option>C. Claim bots are infallible</option>
+      <option >D. Maintain detailed per-transaction audit with inputs, model scores, and operator notes</option>
+    </select>
+
+    <label>20. Business wants to reduce false positives from automation rules. The best next step is to:</label>
+    <!-- Correct: A -->
+    <select name="q20"><option value="">Select answer</option>
+      <option selected>A. Analyze false-positive cases, refine rules or retrain model, and introduce confidence thresholds</option>
+      <option>B. Stop automation altogether</option>
+      <option>C. Increase sensitivity blindly</option>
+      <option>D. Ignore false positives</option>
+    </select>
+
+    <label>21. An RPA process must be compliant with retention laws. Which design principle ensures compliance?</label>
+    <!-- Correct: B -->
+    <select name="q21"><option value="">Select answer</option>
+      <option>A. Keep everything forever</option>
+      <option>B. Data minimization, retention schedules, and secure purge workflows</option>
+      <option>C. Dump logs to public storage and secure purge workflows</option>
+      <option>D. Let users decide ad hoc and secure purge workflows</option>
+    </select>
+
+    <label>22. You plan to combine RPA with AI (document understanding). Which implementation reduces manual tuning later?</label>
+    <!-- Correct: C -->
+    <select name="q22"><option value="">Select answer</option>
+      <option>A. Hard-code parsing rules for each document variant</option>
+      <option>B. Never retrain models</option>
+      <option>C. Use an ML-based OCR/NER pipeline with active learning to capture new variants</option>
+      <option>D. Ask users to reformat documents manually</option>
+    </select>
+
+    <label>23. A critical bot runs on a single VM and fails when the VM is patched. Best resiliency design?</label>
+    <!-- Correct: D -->
+    <select name="q23"><option value="">Select answer</option>
+      <option>A. Do not patch the VM</option>
+      <option>B. Run multiple steps on the VM only</option>
+      <option>C. Increase polling frequency</option>
+      <option>D. Use containerized bots with orchestrator, health checks, and automatic failover</option>
+    </select>
+
+    <label>24. Automation increased throughput but introduced occasional downstream data corruption. Which governance step helps detect and prevent this?</label>
+    <!-- Correct: B -->
+    <select name="q24"><option value="">Select answer</option>
+      <option>A. Remove validation to speed things up</option>
+      <option>B. Add schema validation, end-to-end tests, and canary deployments for automation changes</option>
+      <option>C. Ignore downstream teams</option>
+      <option>D. Increase batch size</option>
+    </select>
+
+    <label>25. A process uses an external AI service with rate limits. During peak, calls are throttled. The best integration design to protect SLAs is:</label>
+    <!-- Correct: A -->
+    <select name="q25"><option value="">Select answer</option>
+      <option>A. Implement circuit-breaker, caching, and graceful degradation with fallback rules</option>
+      <option>B. Remove throttling entirely and graceful degradation with fallback rules</option>
+      <option>C. Increase synchronous calls and graceful degradation with fallback rules</option>
+      <option>D. Block external partners and graceful degradation with fallback rules</option>
+    </select>
+
+    <label>26. To demonstrate ethical AI usage in BPM, which artifact is most useful to publish internally?</label>
+    <!-- Correct: C -->
+    <select name="q26"><option value="">Select answer</option>
+      <option>A. Weekly uptime report</option>
+      <option>B. Source code only</option>
+      <option>C. Model card that documents training data, limitations, and intended use</option>
+      <option>D. Plain performance KPIs without context</option>
+    </select>
+
+    <label>27. A bot consumes data from a queue but sometimes reprocesses the same message causing duplicates. Which consumer-side change fixes this?</label>
+    <!-- Correct: B -->
+    <select name="q27"><option value="">Select answer</option>
+      <option>A. Increase prefetch count </option>
+      <option>B. Implement message idempotency and ack-on-success semantics</option>
+      <option>C. Delete the queue regularly  and ack-on-success semantics</option>
+      <option>D. Recreate queue daily  and ack-on-success semantics</option>
+    </select>
+
+    <label>28. You must estimate total cost of ownership (TCO) for an automation program. Which items must you include?</label>
+    <!-- Correct: A -->
+    <select name="q28"><option value="">Select answer</option>
+      <option>A. Licensing, development, maintenance, monitoring, infra, and exception handling labor</option>
+      <option>B. Only license fees</option>
+      <option>C. Only developer laptop costs</option>
+      <option>D. Only first month setup</option>
+    </select>
+
+    <label>29. A process has high variability; automation fails because exceptions are frequent. Best strategy?</label>
+    <!-- Correct: D -->
+    <select name="q29"><option value="">Select answer</option>
+      <option>A. Automate everything immediately then automate stable sub-processes</option>
+      <option>B. Ignore exceptions then automate stable sub-processes</option>
+      <option>C. Throttle users then automate stable sub-processes</option>
+      <option>D. Re-engineer process to reduce variability, then automate stable sub-processes</option>
+    </select>
+
+    <label>30. You need an operations model for production bots: which role is essential?</label>
+    <!-- Correct: B -->
+    <select name="q30"><option value="">Select answer</option>
+      <option>A. Only developers gather more representative data, and apply fairness-aware techniques</option>
+      <option >B. A centralized orchestration/ops team responsible for scheduling, monitoring and incident response</option>
+      <option>C. Only business users team responsible for scheduling, monitoring and incident response</option>
+      <option>D. No one — bots run themselves users team responsible for scheduling, monitoring and incident response </option>
+    </select>
+
+    <label>31. An ML model is used to prioritize tickets. Its output is biased against a subgroup. Best corrective path?</label>
+    <!-- Correct: C -->
+    <select name="q31"><option value="">Select answer</option>
+      <option>A. Retrain on same data without changes gather more representative data, and apply fairness-aware techniques</option>
+      <option>B. Ignore bias gather more representative data, and apply fairness-aware techniques</option>
+      <option>C. Investigate bias source, gather more representative data, and apply fairness-aware techniques</option>
+      <option>D. Remove model and go manual forever</option>
+    </select>
+
+    <label>32. For long processes with human handoffs, which automation pattern improves throughput and traceability?</label>
+    <!-- Correct: A -->
+    <select name="q32"><option value="">Select answer</option>
+      <option>A. Use BPM workflow orchestration with explicit state transitions and audit logs</option>
+      <option>B. Only email handoffs  with explicit state transitions and audit logs</option>
+      <option>C. One-off scripts per handoff   with explicit state transitions and audit logs</option>
+      <option>D. Paper-based tracking   with explicit state transitions and audit logs</option>
+    </select>
+
+    <label>33. The business insists automation be “faster”; you find time is wasted on approvals. What structural change yields fastest benefit?</label>
+    <!-- Correct: B -->
+    <select name="q33"><option value="">Select answer</option>
+      <option>A. Add more approvers and automate low-risk approvals</option>
+      <option>B. Streamline approval rules, add delegation, and automate low-risk approvals</option>
+      <option>C. Disable approvals and automate low-risk approvals</option>
+      <option>D. Increase reporting frequency and automate low-risk approvals</option>
+    </select>
+
+    <label>34. A process uses multiple third-party vendors for validation. To reduce integration complexity, you should:</label>
+    <!-- Correct: C -->
+    <select name="q34"><option value="">Select answer</option>
+      <option>A. Call each vendor synchronously from the UI</option>
+      <option>B. Build point-to-point integrations for each consumer</option>
+      <option>C. Introduce an aggregator service that normalizes vendor responses and exposes a single API</option>
+      <option>D. Manually copy vendor responses</option>
+    </select>
+
+    <label>35. A citizen developer created many bots; quality varies. Which governance action improves safety without stopping innovation?</label>
+    <!-- Correct: A -->
+    <select name="q35"><option value="">Select answer</option>
+      <option>A. Implement a lightweight review + sandbox + automated tests before production deployment</option>
+      <option>B. Ban citizen development + automated tests before production deployment</option>
+      <option>C. Ignore QA + automated tests before production deployment</option>
+      <option>D. Force all bots into production without review + automated tests before production deployment</option>
+    </select>
+
+    <label>36. You must calculate SLA impact if an automation fails. Which method is most accurate?</label>
+    <!-- Correct: D -->
+    <select name="q36"><option value="">Select answer</option>
+      <option>A. Guess based on past anecdotes under failure scenarios using historical data and queue simulations</option>
+      <option>B. Use only developer estimates under failure scenarios using historical data and queue simulations</option>
+      <option>C. Ignore SLA impacts under failure scenarios using historical data and queue simulations</option>
+      <option>D. Model end-to-end process latency under failure scenarios using historical data and queue simulations</option>
+    </select>
+
+    <label>37. An automation platform uses low-code integrations; however, complex transformations are needed. Best practice?</label>
+    <!-- Correct: B -->
+    <select name="q37"><option value="">Select answer</option>
+      <option>A. Force all transforms into low-code only and expose them to low-code as connectors</option>
+      <option>B. Implement modular transform services (microservices) and expose them to low-code as connectors</option>
+      <option>C. Hard-code transforms in UI flows and expose them to low-code as connectors</option>
+      <option>D. Avoid transformations and expose them to low-code as connectors</option>
+    </select>
+
+    <label>38. You plan to monitor model performance in production. Which practice reduces false alarms?</label>
+    <!-- Correct: C -->
+    <select name="q38"><option value="">Select answer</option>
+      <option>A. Alert on any single metric spike and correlate multiple signals before alerting</option>
+      <option>B. Send alerts to everyone by default and correlate multiple signals before alerting</option>
+      <option>C. Use aggregated, adaptive thresholds and correlate multiple signals before alerting</option>
+      <option>D. Disable alerts entirely and correlate multiple signals before alerting</option>
+    </select>
+
+    <label>39. A process requires approvals stamped in a particular order. Bots processed them in parallel causing order violations. Which fix enforces ordering correctly?</label>
+    <!-- Correct: D -->
+    <select name="q39"><option value="">Select answer</option>
+      <option>A. Increase parallelism and a single-ordered consumer or transactional sequencing step</option>
+      <option>B. Let humans reorder later and a single-ordered consumer or transactional sequencing step</option>
+      <option>C. Add buffering without ordering and a single-ordered consumer or transactional sequencing step</option>
+      <option >D. Add sequence keys and a single-ordered consumer or transactional sequencing step</option>
+    </select>
+
+    <label>40. After scaling automation, you must demonstrate business value to executives each quarter. Best report content?</label>
+    <!-- Correct: B -->
+    <select name="q40"><option value="">Select answer</option>
+      <option>A. Number of bot scripts created only,  error reductions, and customer-impact KPIs</option>
+      <option >B. Business metrics: cost saved, hours automated, error reductions, and customer-impact KPIs</option>
+      <option>C. Only technical uptime, error reductions, and customer-impact KPIs</option>
+      <option>D. Only developer headcount,error reductions, and customer-impact KPIs</option>
+    </select>
+
+    <!-- end questions -->
+
+    <div style="margin-top:14px;display:flex;gap:8px;align-items:center">
+      <button type="submit" id="submitBtn">Submit Answers</button>
+      <button type="button" class="secondary" id="downloadBtn" disabled>Download Answers (.txt)</button>
+      <div style="margin-left:auto" class="muted">Make sure your name is filled before submitting.</div>
+    </div>
+    <p id="submitMsg" class="muted" style="display:none;margin-top:8px;color:green;">Answers saved locally. Download enabled.</p>
+  </form>
+</main>
+
+<script>
+(function(){
+  // Config
+  var ACCESS_CODE = "SAYANG2025";
+  var PASS_PERCENT = 80; // pass if >= 80%
+  var totalSeconds = 35*60, timerInterval = null, examStarted = false;
+
+  var timerEl=document.getElementById('timer');
+  var examForm=document.getElementById('examForm');
+  var accessSection=document.getElementById('accessCodeSection');
+  var examCodeBtn=document.getElementById('examCodeBtn');
+  var examCodeInput=document.getElementById('examCodeInput');
+  var codeError=document.getElementById('codeError');
+  var downloadBtn=document.getElementById('downloadBtn');
+  var submitMsg=document.getElementById('submitMsg');
+
+  // Shuffle questions (preserve label+select pairs), then renumber names so grading maps to displayed order
+  function shuffleQuestions(){
+    const form = document.getElementById('examForm');
+    // collect pairs (label + select) before the submit button section
+    const nodes = Array.from(form.children);
+    const pairs = [];
+    for (let i = 0; i < nodes.length; i++){
+      const el = nodes[i];
+      if (el.tagName === 'LABEL'){
+        // next non-text node that's a SELECT
+        let j = i+1;
+        while(j < nodes.length && nodes[j].tagName !== 'SELECT') j++;
+        if (j < nodes.length && nodes[j].tagName === 'SELECT'){
+          pairs.push([el, nodes[j]]);
+          i = j; // advance
+        }
+      }
+    }
+    // randomize pairs
+    for (let i = pairs.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i+1));
+      [pairs[i], pairs[j]] = [pairs[j], pairs[i]];
+    }
+    // find insertion point (the div that contains submit buttons)
+    const submitSection = Array.from(form.children).find(c => c.tagName === 'DIV' && c.innerHTML.includes('Submit Answers'));
+    // remove all original pairs from form
+    pairs.forEach(p => {
+      if (p[0].parentNode === form) form.removeChild(p[0]);
+      if (p[1].parentNode === form) form.removeChild(p[1]);
+    });
+    // re-insert in shuffled order and renumber select names to q1..qN in display order
+    pairs.forEach((p, idx) => {
+      form.insertBefore(p[0], submitSection);
+      form.insertBefore(p[1], submitSection);
+      // rename select to q{idx+1}
+      p[1].name = 'q' + (idx+1);
+    });
+    // Also, for safety, ensure labels do not have "for" attributes that mispoint
+  }
+
+  function updateTimerDisplay(){
+    var m=Math.floor(totalSeconds/60), s=totalSeconds%60;
+    timerEl.textContent=(m<10?'0'+m:m)+':'+(s<10?'0'+s:s);
+  }
+  function startTimer(){
+    clearInterval(timerInterval);
+    timerInterval=setInterval(function(){
+      totalSeconds--;
+      if(totalSeconds<=0){ clearInterval(timerInterval); lockExam(); return; }
+      updateTimerDisplay();
+    },1000);
+  }
+  function lockExam(){
+    examForm.querySelectorAll('select,input').forEach(el=>el.disabled=true);
+    submitMsg.style.display='block';
+    submitMsg.textContent='Time is up. Exam ended.';
+    // auto-submit results when time is up
+    submitAnswers(true);
+  }
+
+  // Prevent copy/paste/context menu and some shortcuts
+  document.addEventListener('contextmenu',e=>e.preventDefault());
+  document.addEventListener('copy',e=>e.preventDefault());
+  document.addEventListener('cut',e=>e.preventDefault());
+  document.addEventListener('selectstart',e=>e.preventDefault());
+  document.addEventListener('keydown',function(e){
+    if((e.ctrlKey||e.metaKey) && ['c','x','u','s','a','p'].includes(e.key.toLowerCase())) e.preventDefault();
+  });
+
+  function resetExam(reason){
+    if(!examStarted) return;
+    alert("Exam reset due to " + reason + ". The page will reload.");
+    location.reload();
+  }
+  document.addEventListener("visibilitychange",function(){ if(document.hidden && examStarted) resetExam("tab change"); });
+  window.addEventListener("blur",function(){ if(examStarted) resetExam("window minimize or focus loss"); });
+
+  // Start exam
+  examCodeBtn.addEventListener('click', function(){
+    if((examCodeInput.value||'').trim() === ACCESS_CODE){
+      codeError.style.display='none';
+      shuffleQuestions();
+      accessSection.classList.add('hidden');
+      examForm.classList.remove('hidden');
+      examStarted = true;
+      updateTimerDisplay();
+      startTimer();
+    } else {
+      codeError.style.display='block';
+    }
+  });
+
+  examCodeInput.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); examCodeBtn.click(); } });
+
+  // Submit handler
+  examForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    // Validate name
+    var name = document.getElementById('studentName').value.trim();
+    if(!name){ alert('Please enter your name before submitting.'); return; }
+    submitAnswers(false);
+  });
+
+  // Submit or auto-submit
+  function submitAnswers(isTimeout){
+    clearInterval(timerInterval);
+    examStarted = false;
+    var name = document.getElementById('studentName').value.trim() || 'UNKNOWN';
+    var total = 40, correct = 0;
+    var reportLines = [];
+    reportLines.push('Student: ' + name);
+    reportLines.push('Timestamp: ' + new Date().toISOString());
+    reportLines.push('');
+
+    for(var i=1;i<=total;i++){
+      var sel = examForm.querySelector('[name=q'+i+']');
+      var val = sel ? sel.value : '';
+      // Determine correct answer by checking which option had the selected attribute originally.
+      // Because we renamed names during shuffle, we need to find the correct option by inspecting option elements.
+      var correctOption = '';
+      if(sel){
+        for(var k=0;k<sel.options.length;k++){
+          if(sel.options[k].hasAttribute('selected')){
+            correctOption = sel.options[k].value;
+            break;
+          }
+        }
+      }
+      if(!correctOption){
+        // fallback: infer correct option by matching displayed option text patterns (not ideal)
+        // But since we set selected attributes in HTML for the correct choice, above should work.
+      }
+      if(val === correctOption){
+        correct++;
+      } else {
+        reportLines.push('Q' + i + ': Your=' + (val||'None') + ' | Correct=' + (correctOption || 'Unknown'));
+      }
+    }
+    var percent = Math.round((correct/total)*100);
+    var passed = percent >= PASS_PERCENT;
+    alert('Your score: ' + correct + '/' + total + ' (' + percent + '%) – ' + (passed ? 'Passed' : 'Failed'));
+    // Save downloadable data: include per-question chosen and correct where feasible
+    var detailed = [];
+    detailed.push('Student: ' + name);
+    detailed.push('Score: ' + correct + '/' + total + ' (' + percent + '%) – ' + (passed ? 'Passed' : 'Failed'));
+    detailed.push('');
+    for(var j=1;j<=total;j++){
+      var s = examForm.querySelector('[name=q'+j+']');
+      var chosen = s ? (s.value || 'None') : 'None';
+      var corr = '';
+      if(s){
+        for(var m=0;m<s.options.length;m++){
+          if(s.options[m].hasAttribute('selected')) { corr = s.options[m].value; break; }
+        }
+      }
+      detailed.push('Q' + j + ': Your=' + chosen + ' | Correct=' + (corr || 'Unknown'));
+    }
+    window._latestExamData = detailed.join('\n');
+    downloadBtn.disabled = false;
+    submitMsg.style.display='block';
+    submitMsg.textContent='Answers saved locally. Click "Download Answers" to save a text file.';
+  }
+
+  downloadBtn.addEventListener('click', function(){
+    var data = window._latestExamData || '';
+    if(!data){ alert('No answers to download. Submit first.'); return; }
+    var blob = new Blob([data], { type: 'text/plain' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = (document.getElementById('studentName').value || 'answers') + '_answers.txt';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); },3000);
+  });
+
+  // Initial timer display
+  updateTimerDisplay();
+})();
+</script>
+</body>
+</html>
